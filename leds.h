@@ -14,5 +14,4 @@
 void initialize_leds(void);
 void toggle_led(enum Color color);
 
-
 #endif /* LEDS_H_ */

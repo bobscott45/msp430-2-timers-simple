@@ -40,5 +40,4 @@ void reset_timer(enum Color color)  {
         TA1CTL &= ~timer_interrupt_flag;
         break;
     }
-
 }

@@ -3,6 +3,7 @@
 
 static const unsigned bit0 =  0x0001;
 static const unsigned bit7 =  0x0080;
+
 void initialize_leds() {
     P1DIR = bit0; //red led   P1.0
     P9DIR = bit7; //green led P9.7

@@ -4,7 +4,6 @@
 #include "leds.h"
 
 void setup(unsigned timer0_interval, unsigned timer1_interval);
-void setup_board(void);
 
 static const unsigned red_interval =  50000;
 static const unsigned green_interval = 5000;
@@ -23,20 +22,12 @@ int main(void)
 	        reset_timer(green);
 	    }
 	}
-
 }
 
 void setup(unsigned red_interval, unsigned green_interval) {
-        setup_board();
+        WDTCTL = WDTPW | WDTHOLD;   // disable watchdog timer
+        PM5CTL0 = 0xFFFE;  //enable pin io
+        initialize_leds();
         initialize_timer(red, red_interval);
         initialize_timer(green, green_interval);
-        initialize_leds();
 }
-
-void setup_board(void) {
-    WDTCTL = WDTPW | WDTHOLD;   // stop watchdog timer
-    PM5CTL0 = 0xFFFE;  //enable pin io
-}
-
-
-
